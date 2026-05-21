@@ -1,0 +1,6 @@
+{
+  "name": "Ken's Multiverse - Vòng Quay Đầu Tiên",
+  "description": "Ứng dụng thiệp mời sinh nhật và nhìn lại hành trình 1 năm đầu đời kì diệu của bé Ken quanh Mặt Trời với chủ đề Đa Vũ Trụ Song Tử.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

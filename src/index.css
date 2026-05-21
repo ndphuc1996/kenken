@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-container-low: #171b2a;
+  --color-tertiary: #10B981;
+  --color-on-surface-variant: #ccc3d7;
+  --color-error: #ffb4ab;
+  --color-on-secondary-container: #725f00;
+  --color-surface-tint: #d3bbff;
+  --color-surface: #0f1321;
+  --color-secondary-container: #FBBF24;
+  --color-surface-container-high: #262939;
+  --color-inverse-surface: #dfe1f6;
+  --color-on-tertiary: #00363e;
+  --color-error-container: #93000a;
+  --color-on-surface: #dfe1f6;
+  --color-outline-variant: #4a4455;
+  --color-on-secondary-fixed: #221b00;
+  --color-inverse-primary: #7331df;
+  --color-on-primary: #3f008d;
+  --color-surface-bright: #353849;
+  --color-secondary: #fff9ef;
+  --color-background: #0a0d1c;
+  --color-primary-container: #6d28d9;
+  --color-outline: #958da1;
+  --color-on-error: #690005;
+  --color-inverse-on-surface: #2c303f;
+  --color-on-secondary: #3a3000;
+  --color-on-background: #dfe1f6;
+  --color-tertiary-fixed: #a2eeff;
+  --color-secondary-fixed: #ffe16d;
+  --color-on-tertiary-fixed-variant: #004e5a;
+  --color-primary: #d3bbff;
+  --color-on-tertiary-container: #10B981;
+  --color-tertiary-fixed-dim: #10B981;
+  --color-surface-dim: #0f1321;
+  --color-on-primary-fixed-variant: #5b00c5;
+  --color-primary-fixed-dim: #d3bbff;
+  --color-tertiary-container: #00616f;
+  --color-surface-container-lowest: #05070a;
+  --color-on-tertiary-fixed: #001f25;
+  --color-surface-container-highest: #303444;
+  --color-surface-container: #1b1f2e;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #ebddff;
+  --color-on-primary-fixed: #250059;
+  --color-secondary-fixed-dim: #FBBF24;
+  --color-on-secondary-fixed-variant: #544600;
+  --color-surface-variant: #303444;
+  --color-on-primary-container: #dac5ff;
+
+  --font-display: 'Bodoni Moda', serif;
+  --font-headline: 'Bodoni Moda', serif;
+  --font-body: 'Hanken Grotesk', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6)); }
+  50% { filter: drop-shadow(0 0 40px rgba(16, 185, 129, 0.9)); }
+}
+
+@keyframes rune-flicker {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes shim {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Animation utilities */
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 25s linear infinite;
+}
+
+.animate-rotate-reverse {
+  animation: rotate-reverse 18s linear infinite;
+}
+
+.animate-rotate-slow-bg {
+  animation: rotate-slow 40s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-rune-flicker {
+  animation: rune-flicker 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Theme style utilities */
+.time-stone-glow {
+  background: radial-gradient(circle at 30% 30%, #34D399, #10B981, #065F46);
+  box-shadow: 0 0 60px 20px rgba(16, 185, 129, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.eldritch-mandala {
+  border: 2px dashed #FBBF24;
+  opacity: 0.4;
+  mask-image: radial-gradient(circle, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 100%);
+}
+
+.glass-panel {
+  background: rgba(10, 13, 28, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.portal-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shim 3s infinite linear;
+}
+
+.rune-text {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.5em;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+/* Card Flip Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+/* Add a beautiful tactile response and hover lift */
+.perspective-1000 {
+  perspective: 1200px;
+}
+.perspective-1000 .card-inner {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+.perspective-1000:hover .card-inner {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.35);
+}
+.perspective-1000:active .card-inner {
+  transform: scale(0.96) translateY(-2px);
+  transition: transform 0.15s ease;
+}
+
+/* Maintain flip with smooth transitions and tactile response */
+.is-flipped.perspective-1000:hover .card-inner {
+  transform: rotateY(180deg) translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(251, 191, 36, 0.35);
+}
+.is-flipped.perspective-1000:active .card-inner {
+  transform: rotateY(180deg) scale(0.96) translateY(-2px);
+  transition: transform 0.15s ease;
+}
+
+/* We flip using this class */
+.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0d1c;
+}
+::-webkit-scrollbar-thumb {
+  background: #10B981;
+  border-radius: 3px;
+}
