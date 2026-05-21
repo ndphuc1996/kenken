@@ -3,10 +3,14 @@ import { GALLERY_PHOTOS } from '../data';
 import { GalleryPhoto } from '../types';
 import { ChevronLeft, ChevronRight, X, Eye } from 'lucide-react';
 
-export default function SpaceGallery() {
+interface SpaceGalleryProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+export default function SpaceGallery({ activeTab, setActiveTab }: SpaceGalleryProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(-1);
-  const [activeTab, setActiveTab] = useState<string>('all');
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   const categories = [

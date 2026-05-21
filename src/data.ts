@@ -32,36 +32,25 @@ import m12_2 from './assets/images/12-month/12m-2.jpg';
 
 export const TIMELINE_DATA: TimelineMonth[] = [
   {
-    id: 12,
-    month: '12M',
-    title: 'Tháng 12: Nhà Thám Hiểm',
-    description: 'Ken đã có thể tự tin bước đi những bước đầu tiên trên bề mặt hành tinh mới, tò mò nhìn ngắm và chạm tay vào tất cả mọi thứ xung quanh trạm.',
-    height: '78 cm',
-    weight: '10.5 kg',
-    achievement: 'Bước đi đầu đời',
-    image: m12_0,
-    color: 'tertiary'
+    id: 0,
+    month: '0M',
+    title: 'Sơ Sinh: Chào Thế Giới',
+    description: 'Chào mừng Ken đổ bộ đến với đa vũ trụ này. Những ngày đầu ngủ thật ngoan và làm quen với ánh sáng nhẹ cùng âm thanh ru dương của phi thuyền.',
+    height: '50 cm',
+    weight: '2.7 kg',
+    achievement: 'Hạ cánh an toàn',
+    image: nb0,
+    color: 'surface-tint'
   },
   {
-    id: 9,
-    month: '9M',
-    title: 'Tháng 9: Đứng Vững Trên Trại',
-    description: 'Bắt đầu vịn tay đứng dậy ở mọi góc tường, bàn trà và "phiêu" theo những bản nhạc phim Marvel yêu thích mà Ba Mẹ bật.',
-    height: '74 cm',
-    weight: '9.2 kg',
-    achievement: 'Đứng vịn tự lập',
-    image: m9_0,
-    color: 'secondary-container'
-  },
-  {
-    id: 6,
-    month: '6M',
-    title: '6M: Khám Phá Hương Vị',
-    description: 'Lần đầu tiên ngồi vững vàng và khám phá những hương vị ăn dặm đầu đời. Ken rất mê món cháo bông cải xanh và cà rốt nghiền!',
-    height: '69 cm',
-    weight: '8.1 kg',
-    achievement: 'Ngồi vững & Ăn dặm',
-    image: m6_0,
+    id: 1,
+    month: '1M',
+    title: 'Tháng 1: Điểm Khởi Đầu',
+    description: 'Bắt đầu biết nhìn chăm chú vào khuôn mặt của Ba Mẹ, phản xạ nhạy bén với âm thanh và có những nụ cười biểu cảm đầu đời cực kỳ đáng yêu.',
+    height: '52 cm',
+    weight: '3.8 kg',
+    achievement: 'Thích nghi Trái Đất',
+    image: m1_0,
     color: 'primary'
   },
   {
@@ -76,26 +65,37 @@ export const TIMELINE_DATA: TimelineMonth[] = [
     color: 'tertiary'
   },
   {
-    id: 1,
-    month: '1M',
-    title: 'Tháng 1: Điểm Khởi Đầu',
-    description: 'Bắt đầu biết nhìn chăm chú vào khuôn mặt của Ba Mẹ, phản xạ nhạy bén với âm thanh và có những nụ cười biểu cảm đầu đời cực kỳ đáng yêu.',
-    height: '52 cm',
-    weight: '3.8 kg',
-    achievement: 'Thích nghi Trái Đất',
-    image: m1_0,
+    id: 6,
+    month: '6M',
+    title: '6M: Khám Phá Hương Vị',
+    description: 'Lần đầu tiên ngồi vững vàng và khám phá những hương vị ăn dặm đầu đời. Ken rất mê món cháo bông cải xanh và cà rốt nghiền!',
+    height: '69 cm',
+    weight: '8.1 kg',
+    achievement: 'Ngồi vững & Ăn dặm',
+    image: m6_0,
     color: 'primary'
   },
   {
-    id: 0,
-    month: '0M',
-    title: 'Sơ Sinh: Chào Thế Giới',
-    description: 'Chào mừng Ken đổ bộ đến với đa vũ trụ này. Những ngày đầu ngủ thật ngoan và làm quen với ánh sáng nhẹ cùng âm thanh ru dương của phi thuyền.',
-    height: '50 cm',
-    weight: '2.7 kg',
-    achievement: 'Hạ cánh an toàn',
-    image: nb0,
-    color: 'surface-tint'
+    id: 9,
+    month: '9M',
+    title: 'Tháng 9: Đứng Vững Trên Trại',
+    description: 'Bắt đầu vịn tay đứng dậy ở mọi góc tường, bàn trà và "phiêu" theo những bản nhạc phim Marvel yêu thích mà Ba Mẹ bật.',
+    height: '74 cm',
+    weight: '9.2 kg',
+    achievement: 'Đứng vịn tự lập',
+    image: m9_0,
+    color: 'secondary-container'
+  },
+  {
+    id: 12,
+    month: '12M',
+    title: 'Tháng 12: Nhà Thám Hiểm',
+    description: 'Ken đã có thể tự tin bước đi những bước đầu tiên trên bề mặt hành tinh mới, tò mò nhìn ngắm và chạm tay vào tất cả mọi thứ xung quanh trạm.',
+    height: '78 cm',
+    weight: '10.5 kg',
+    achievement: 'Bước đi đầu đời',
+    image: m12_0,
+    color: 'tertiary'
   }
 ];
 

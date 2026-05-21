@@ -22,6 +22,7 @@ export default function App() {
   const [isStoneActivating, setIsStoneActivating] = useState(false);
   const [countdown, setCountdown] = useState({ days: 3, hours: 14, minutes: 22, seconds: 40 });
   const [soundActive, setSoundActive] = useState(false);
+  const [galleryTab, setGalleryTab] = useState<string>('all');
 
   // Setup dynamic countdown to June 13, 2026 11:00:00
   useEffect(() => {
@@ -52,9 +53,9 @@ export default function App() {
     setIsStoneActivating(true);
     
     setTimeout(() => {
-      const timelineSection = document.getElementById('timeline');
+      const timelineSection = document.getElementById('timeline-0');
       if (timelineSection) {
-        const offset = 44; // height of top navbar (adjusted 20px higher landing)
+        const offset = 80; // height of top navbar + spacing buffer to center Newborn card
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = timelineSection.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
@@ -78,6 +79,23 @@ export default function App() {
       ...prev,
       [id]: !prev[id]
     }));
+  };
+
+  const handleTimelineNodeClick = (id: number, _month: string) => {
+    const timelineCard = document.getElementById(`timeline-${id}`);
+    if (timelineCard) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = timelineCard.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      setActiveSection('timeline');
+    }
   };
 
   const [activeSection, setActiveSection] = useState('home');
@@ -122,10 +140,13 @@ export default function App() {
       setActiveSection('home');
       return;
     }
-    const element = document.getElementById(targetId.replace('#', ''));
+    
+    // Redirect '#timeline' scroll target to target the specific Newborn card 'timeline-0'
+    const targetElementId = targetId === '#timeline' ? 'timeline-0' : targetId.replace('#', '');
+    const element = document.getElementById(targetElementId);
     if (element) {
-      // Use custom offsets for specific sections: 44px for timeline (20px higher), 40px for venue, 64px for others
-      const offset = targetId === '#venue' ? 40 : (targetId === '#timeline' ? 44 : 64);
+      // Use custom offsets for specific sections: 80px for timeline/newborn, 40px for venue, 64px for others
+      const offset = targetId === '#venue' ? 40 : (targetId === '#timeline' ? 80 : 64);
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -378,6 +399,7 @@ export default function App() {
             return (
               <div 
                 key={item.id} 
+                id={`timeline-${item.id}`}
                 className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 relative"
               >
                 {/* Visual anchor line extension on desktop */}
@@ -395,7 +417,7 @@ export default function App() {
 
                 {/* Central Circle Month indicator */}
                 <div 
-                  onClick={() => toggleCardFlip(item.id)}
+                  onClick={() => handleTimelineNodeClick(item.id, item.month)}
                   className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#0a0d1c] border-4 flex items-center justify-center z-20 order-1 md:order-2 shadow-xl hover:scale-110 transition-all cursor-pointer ${
                     item.id === 12 ? 'border-[#10B981] shadow-[0_0_20px_rgba(16,185,129,0.3)]' :
                     item.id === 9 ? 'border-[#FBBF24] shadow-[0_0_20px_rgba(251,191,36,0.3)]' :
@@ -514,7 +536,7 @@ export default function App() {
       </section>
 
       {/* Interstellar photo Cabin section */}
-      <SpaceGallery />
+      <SpaceGallery activeTab={galleryTab} setActiveTab={setGalleryTab} />
 
       {/* Cosmic wall section */}
       <WishWall />
@@ -525,10 +547,18 @@ export default function App() {
           Ken's Multiverse
         </div>
         <div className="flex gap-6 mt-1.5">
-          <a className="font-label text-[10px] text-on-surface-variant hover:text-[#FBBF24] transition-colors uppercase tracking-widest" href="#timeline">
+          <a 
+            onClick={(e) => handleScrollTo(e, '#timeline')}
+            className="font-label text-[10px] text-on-surface-variant hover:text-[#FBBF24] transition-colors uppercase tracking-widest cursor-pointer" 
+            href="#timeline"
+          >
             MULTIVERSE PROTOCOL
           </a>
-          <a className="font-label text-[10px] text-on-surface-variant hover:text-[#FBBF24] transition-colors uppercase tracking-widest" href="#gallery">
+          <a 
+            onClick={(e) => handleScrollTo(e, '#gallery')}
+            className="font-label text-[10px] text-on-surface-variant hover:text-[#FBBF24] transition-colors uppercase tracking-widest cursor-pointer" 
+            href="#gallery"
+          >
             INTERSTELLAR RIGHTS
           </a>
         </div>

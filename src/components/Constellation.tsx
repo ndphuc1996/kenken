@@ -58,7 +58,7 @@ export default function Constellation() {
           <div className="absolute inset-16 border border-white/5 rounded-full animate-pulse"></div>
 
           {/* Interactive constellation SVG */}
-          <svg className="absolute inset-0 w-full h-full text-secondary-container drop-shadow-[0_0_12px_rgba(251,191,36,0.6)] leading-none" viewBox="0 0 100 100">
+          <svg className="absolute inset-0 w-full h-full text-secondary-container leading-none" style={{ filter: 'none' }} viewBox="0 0 100 100">
             {/* Connection lines representing the Twins Castor & Pollux */}
             {/* 1. Head-to-Head Connector */}
             <line stroke="currentColor" strokeWidth="0.8" className="opacity-80" x1="32" y1="15" x2="24" y2="24" />
@@ -142,7 +142,10 @@ export default function Constellation() {
               <div className="card-inner relative w-full h-full preserve-3d">
                 
                 {/* FRONT FACE (Cosmic Cover - mystery card back) */}
-                <div className="absolute inset-0 backface-hidden rounded-3xl overflow-hidden border border-secondary-container/30 bg-[#0f1321] flex flex-col items-center justify-between p-6 shadow-[0_0_30px_rgba(251,191,36,0.15)] select-none">
+                <div
+                  className="absolute inset-0 backface-hidden [-webkit-backface-visibility:hidden] rounded-3xl overflow-hidden border border-secondary-container/30 bg-[#0f1321] flex flex-col items-center justify-between p-6 shadow-[0_0_30px_rgba(251,191,36,0.15)] select-none"
+                  style={{ visibility: isCardFlipped ? 'hidden' : 'visible', transitionProperty: 'visibility', transitionDelay: isCardFlipped ? '0.4s' : '0s' }}
+                >
                   {/* Inner border */}
                   <div className="absolute inset-3 border border-secondary-container/10 rounded-[1.25rem] pointer-events-none" />
                   
@@ -157,8 +160,9 @@ export default function Constellation() {
                   <div className="relative flex items-center justify-center w-28 h-28 my-auto z-10">
                     <div className="absolute inset-0 border border-secondary-container/20 rounded-full animate-ping opacity-30"></div>
                     <div className="absolute -inset-2 border border-tertiary/10 rounded-full animate-pulse opacity-40"></div>
-                    
-                    <svg className="w-16 h-16 text-[#FBBF24] drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <div className="absolute inset-0 rounded-full bg-[#FBBF24]/15 blur-xl pointer-events-none"></div>
+
+                    <svg className="w-16 h-16 text-[#FBBF24]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5h6M9 19h6M9 5v14M15 5v14" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 5c4 1 10 1 14 0M5 19c4-1 10-1 14 0" />
                     </svg>
@@ -174,7 +178,10 @@ export default function Constellation() {
                 </div>
 
                 {/* BACK FACE (Decrypted details - card front) */}
-                <div className="absolute inset-0 backface-hidden rotate-y-180 glass-panel p-6 sm:p-8 rounded-3xl flex flex-col justify-between border border-tertiary/40 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                <div
+                  className="absolute inset-0 backface-hidden [-webkit-backface-visibility:hidden] rotate-y-180 glass-panel p-6 sm:p-8 rounded-3xl flex flex-col justify-between border border-tertiary/40 shadow-[0_0_30px_rgba(16,185,129,0.2)]"
+                  style={{ visibility: isCardFlipped ? 'visible' : 'hidden', transitionProperty: 'visibility', transitionDelay: isCardFlipped ? '0s' : '0.4s' }}
+                >
                   {/* Inner border */}
                   <div className="absolute inset-3 border border-tertiary/10 rounded-[1.25rem] pointer-events-none" />
                   
