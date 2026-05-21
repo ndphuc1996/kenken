@@ -238,7 +238,7 @@ export default function RSVPModal({ isOpen, onClose, onSubmit }: RSVPModalProps)
 
                     <div>
                       <span className="text-white/40 block text-[9px] uppercase tracking-wider">THIÊN TRẠM ĐẾN</span>
-                      <span className="text-white truncate block font-medium">66/21B, Thanh Đức, Vĩnh Long</span>
+                      <span className="text-white truncate block font-medium">66/21A, Thanh Đức, Vĩnh Long</span>
                     </div>
                     <div>
                       <span className="text-white/40 block text-[9px] uppercase tracking-wider">PHƯƠNG TIỆN CHUYÊN CHỞ</span>

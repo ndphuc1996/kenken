@@ -515,7 +515,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-white/40 block text-[8px] uppercase tracking-wider">TOẠ ĐỘ ĐỔ BỘ</span>
-                    <span className="font-semibold text-white">66/21B, phường Thanh Đức, Tp. Vĩnh Long</span>
+                    <span className="font-semibold text-white">66/21A, phường Thanh Đức, Tp. Vĩnh Long</span>
                   </div>
                 </div>
 
